@@ -1,5 +1,5 @@
 import { SIGN_IN, 
-         SIGN_OUT, 
+         SIGN_OUT,  
          CREATE_STREAM,
          FETCH_STREAM_LIST,
          FETCH_STREAM,

@@ -52,6 +52,18 @@ body {
     width: 700px;    
 }
 
+.item-list {
+    text-align: justify;
+    background: inherit !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $medium-gray;
+}
+
+.title-list {
+    font-size: 20px;
+}
+
 .item {
     color: $light-gray !important;
     padding-right: 30px;
