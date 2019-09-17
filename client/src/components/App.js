@@ -6,6 +6,7 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
+import StreamIndex from './streams/StreamIndex';
 import Header from './Header';
 
 import './App.scss'
@@ -18,7 +19,7 @@ const App = () => {
                 <Header />
             </div>
             <div className="twelve wide column">
-                <Route path="/" exact component={StreamList} />
+                <Route path="/" exact component={StreamIndex} />
                 <Route path="/streams/new" exact component={StreamCreate} />
                 <Route path="/streams/edit" exact component={StreamEdit} />
                 <Route path="/streams/show" exact component={StreamShow} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -9,7 +10,7 @@ class StreamCreate extends React.Component {
         return (
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='item-container'>
                 <Field name="title" component={this.renderInput} label="Título"/>
-                <Field name="description" component={this.renderInput} label="Descrição"/>
+                <Field name="description" component={this.renderInput} label="Descrição" type="text"/>
                 <button>Processar</button>
             </form>
         )
@@ -26,7 +27,7 @@ class StreamCreate extends React.Component {
                     <span> { formProps.label } </span>
                     {this.renderError(formProps.meta)}
                 </div> 
-                <input { ...formProps.input} autoComplete="off" className='item'/>
+                <Input { ...formProps.input} autoComplete="off" placeholder={ formProps.label } />
             </div>
         )
     }
@@ -48,6 +49,29 @@ const validate = (formValues) => {
 
     return errors
 }
+
+const Input = styled.input.attrs(props => ({
+    size: props.size || "1em",
+  }))`
+    color: palevioletred;
+    font-size: 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    letter-spacing: 0.8px;
+    margin: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-align: justify;
+    background: inherit !important;
+    border: 1px solid $medium-gray;
+    border-radius: 25px;
+
+    /* here we use the dynamically computed prop */
+    margin: ${props => props.size};
+    padding: ${props => props.size};
+  `
+;
+
 
 const formWrapped = reduxForm({ form: 'streamCreate', validate: validate })(StreamCreate);
 export default connect(null, { createStream })(formWrapped)
