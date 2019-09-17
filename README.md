@@ -26,5 +26,8 @@ ___
 ``` cd api ```
 ``` $ npm install --save ```
 4. Suba o 'servidor' de api, no projeto api
+``` cd api ```
 ``` $ npm start ```
 5. Suba o projeto client
+``` cd client ```
+``` $ npm start ```
