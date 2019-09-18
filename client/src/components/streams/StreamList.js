@@ -14,6 +14,7 @@ class StreamList extends React.Component {
     render() {
         return (
             <div className="list">
+                <br/>
                 <span className="title-list"> Comece a assistir agora </span>
                 <br/>
                 <br/>
