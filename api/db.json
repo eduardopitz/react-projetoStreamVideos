@@ -14,33 +14,21 @@
     },
     {
       "title": "Motorhome",
-      "description": "Playing motorhome.",
+      "description": "There are many ways to apply contextual overrides to a component's styling. That being said, it rarely is easy without rigging up a well-known targeting CSS selector paradigm and then making them accessible for use in interpolations.",
       "userId": "113959918444030260853",
       "id": 3
     },
     {
       "title": "Motorhome",
-      "description": "Playing motorhome.",
+      "description": "The styled method works perfectly on all of your own or any third-party component, as long as they attach the passed className prop to a DOM element.",
       "userId": "113959918444030260853",
       "id": 4
     },
     {
       "title": "Motorhome",
-      "description": "Playing motorhome.",
+      "description": "styled-components solves this use case cleanly via the pattern. Whenever a component is created or wrapped by the styled() factory function, it is also assigned a stable CSS class for use in targeting. This allows for extremely powerful composition patterns without having to fuss around with naming and avoiding selector collisions.",
       "userId": "113959918444030260853",
       "id": 5
-    },
-    {
-      "title": "Motorhome",
-      "description": "Playing motorhome.",
-      "userId": "113959918444030260853",
-      "id": 6
-    },
-    {
-      "title": "Motorhome",
-      "description": "Playing motorhome.",
-      "userId": "113959918444030260853",
-      "id": 7
     }
   ]
 }

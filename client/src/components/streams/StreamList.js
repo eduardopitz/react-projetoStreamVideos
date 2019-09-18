@@ -15,12 +15,16 @@ class StreamList extends React.Component {
         return (
             <div className="list">
                 <br/>
-                <span className="title-list"> Comece a assistir agora </span>
+                {this.renderCreateStream()}
+                <br/>
+                <br/>
+                <br/>
+                <span className="title-list"> Ou comece a assistir agora :) </span>
                 <br/>
                 <br/>
                 {this.renderList()}
                 <br />
-                {this.renderCreateStream()}
+                
             </div>
         )
     }
@@ -36,7 +40,10 @@ class StreamList extends React.Component {
     renderCurrentUserActions(stream) {
         if (stream.userId == this.props.currentUserId) {
             return (
-                <Button>Editar</Button>
+                <div>
+                    <br/>
+                    <Button>Editar</Button>
+                </div>
             )
         }
     }
@@ -45,7 +52,7 @@ class StreamList extends React.Component {
         return this.props.streamList.map(stream => {
             return (
                 <div className="item-list" key={stream.id}>
-                    <span> {stream.title} </span>
+                    <span><b> {stream.title} </b></span> <br/>
                     <span> {stream.description} </span>
                     {this.renderCurrentUserActions(stream)}
                     <hr/>
