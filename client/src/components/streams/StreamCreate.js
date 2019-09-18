@@ -50,9 +50,8 @@ const validate = (formValues) => {
     return errors
 }
 
-const Input = styled.input.attrs(props => ({
-    size: props.size || "1em",
-  }))`
+
+const Input = styled.input`
     color: palevioletred;
     font-size: 1em;
     border: 2px solid palevioletred;
@@ -67,8 +66,8 @@ const Input = styled.input.attrs(props => ({
     border-radius: 25px;
 
     /* here we use the dynamically computed prop */
-    margin: ${props => props.size};
-    padding: ${props => props.size};
+    margin: 1em;
+    padding: 1em;
   `
 ;
 
