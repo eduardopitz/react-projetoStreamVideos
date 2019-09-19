@@ -38,12 +38,12 @@ class StreamList extends React.Component {
     }
 
     renderCurrentUserActions(stream) {
-        if (stream.userId == this.props.currentUserId) {
+        if (stream.userId === this.props.currentUserId) {
             return (
                 <div>
                     <br/>
-                    <Button>Editar</Button>
-                    <Button>Excluir</Button>
+                    <Link to={`/streams/edit/${stream.id}`}>   Editar  </Link>
+                    <Link to={`/streams/delete/${stream.id}`}> Excluir </Link>
                 </div>
             )
         }
