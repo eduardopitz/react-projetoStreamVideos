@@ -19,7 +19,7 @@ class StreamList extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <span className="title-list"> Ou comece a assistir agora :) </span>
+                <span className="title-list"> Online agora </span>
                 <br/>
                 <br/>
                 {this.renderList()}
@@ -43,6 +43,7 @@ class StreamList extends React.Component {
                 <div>
                     <br/>
                     <Button>Editar</Button>
+                    <Button>Excluir</Button>
                 </div>
             )
         }

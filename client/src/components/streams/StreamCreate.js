@@ -52,9 +52,9 @@ const validate = (formValues) => {
 
 
 const Input = styled.input`
-    color: palevioletred;
+    color: #d9d7d7;
     font-size: 1em;
-    border: 2px solid palevioletred;
+    border: 1px solid #424040;
     border-radius: 3px;
     letter-spacing: 0.8px;
     margin: 20px;
@@ -62,7 +62,6 @@ const Input = styled.input`
     padding-left: 30px;
     text-align: justify;
     background: inherit !important;
-    border: 1px solid $medium-gray;
     border-radius: 25px;
 
     /* here we use the dynamically computed prop */
