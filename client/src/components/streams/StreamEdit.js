@@ -1,32 +1,29 @@
 import React from 'react';
-import styled from 'styled-components'
-
-import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { updateStream } from '../../actions';
+import { fetchStream, editStream } from '../../actions';
+import StreamForm from './StreamForm';
 
 class StreamEdit extends React.Component {
+    componentDidMount() {
+        this.props.fetchStream(this.props.match.params.id);
+    };
+
+    onSubmit = (formValue) => {
+        console.log(formValue);
+    }
+
     render() {
-        return (
-            <form onSubmit={this.onSubmit} className='item-container'>
-                <Field name="title" component={this.renderInput} label="Título"/>
-                <Field name="description" component={this.renderInput} label="Descrição" type="text"/>
-                <button>Processar</button>
-            </form>
-        )
-    }
+        if (!this.props.stream) {
+            return <div> Carregando </div>;
+        }
 
-    onSubmit = (formValues) => {
-        this.props.updateStream(formValues);
-    }
-
-    renderInput = (formProps) => {
         return (
             <div>
-                <div>
-                    <span> { formProps.label } </span>
-                </div> 
-                <Input { ...formProps.input} autoComplete="off" placeholder={ formProps.label } />
+                <h4> # Editar Stream </h4>
+                <StreamForm 
+                    initialValues={{ title: this.props.stream.title, description: this.props.stream.description}} 
+                    onSubmit={this.onSubmit}
+                />
             </div>
         )
     }
@@ -36,23 +33,4 @@ const mapStateToProps = (state, ownProps) => {
     return { stream: state.streams[ownProps.match.params.id] };
 }
 
-const Input = styled.input`
-    color: #d9d7d7;
-    font-size: 1em;
-    border: 1px solid #424040;
-    border-radius: 3px;
-    letter-spacing: 0.8px;
-    margin: 20px;
-    padding-right: 30px;
-    padding-left: 30px;
-    text-align: justify;
-    background: inherit !important;
-    border-radius: 25px;
-
-    /* here we use the dynamically computed prop */
-    margin: 1em;
-    padding: 1em;
-  `
-;
-
-export default connect(mapStateToProps)(StreamEdit)
+export default connect(mapStateToProps, { fetchStream, editStream })(StreamEdit)
