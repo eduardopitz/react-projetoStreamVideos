@@ -14,6 +14,12 @@ Atualmente temos inúmeras opções para solucionar problemas relacionados a uti
 #### JSON Server
 Uma opção para validações e mockups é utilizar o JSON Server. O JSON Server vai te auxiliar servindo como uma API Rest e servirá como uma maneira simples para armazenar dados em um JSON. Com ele, é possível focar o desenvolvimento deste projeto apenas no front-end sem a necessidade de um back-end. Futuramente irei migrar esse carinha para uma API verdadeira.
 
+
+#### React Portals e Modais
+O React Portals vai te auxiliar a rendeizar Modais fora do componente principal de seu SPA. Quando esse evento é renderizado, os eventos que acontecem nele são gerenciados pela hierarquia do React Components, em vez da hierarquia definida pela posição DOM do elemento. Você pode ler um pouco mais nesse link [aqui](https://www.freecodecamp.org/news/how-to-render-modals-in-react-bbe9685e947e/). 
+[PS: Não use modal para criar formulários ;)]
+
+
 ___ 
 
 #### Como executar
