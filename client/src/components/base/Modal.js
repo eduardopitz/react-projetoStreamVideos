@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+
 import history from '../../history';
 
-const Modal = () => {
+const Modal = (props) => {
     return ReactDOM.createPortal(
         <div onClick={() => history.push('/streams/list')} className="ui dimmer modals visible active">
             <div onClick={(e) => e.stopPropagation()} className="ui standard modals visible active">
                 <ModalStyle>
-                    <div className="header">Remover Stream</div>
-                    <div className="content">
-                        <p>Você tem certeza que deseja <b>remover</b> o stream?</p>
-                    </div>
-                    <div className="actions">
-                    <div className="ui cancel button">Cancelar</div>
-                        <div className="button ui approve ">Confirmar</div>
-                    </div>
+                    <div className="header">  {props.title}   </div>
+                    <div className="content"> {props.content} </div>
+                    <div className="actions"> {props.actions} </div>
                 </ModalStyle>
             </div>
         </div>, document.querySelector('#modal')
@@ -35,12 +31,19 @@ const ModalStyle = styled.div`
         margin: 5px !important;
         border: none;
         border-radius: 30px;
-        color: $light-gray;
         font-size: 12px;
         padding: 10px 40px;
         box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.65);
         transition: all .3s;
         outline: none;
+        
+        :hover {
+            color: #4e54c8 !important;
+            outline-style: none;
+            border-radius: 30px;
+            background: lighten($gray, 10%);
+            box-shadow: 0px 5px 20px -3px rgba(0,0,0,0.65);
+        }
     }
 `;
 
