@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-import history from '../../history';
 
 const Modal = (props) => {
     return ReactDOM.createPortal(
-        <div onClick={() => history.push('/streams/list')} className="ui dimmer modals visible active">
+        <div onClick={props.onDismiss} 
+             className="ui dimmer modals visible active">
             <div onClick={(e) => e.stopPropagation()} className="ui standard modals visible active">
                 <ModalStyle>
                     <div className="header">  {props.title}   </div>
