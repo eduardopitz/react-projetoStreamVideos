@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchStreamList } from '../../actions';
+import PrimaryButton from '../base/PrimaryButton';
+import ListButton from '../base/ListButton';
 
 class StreamList extends React.Component {
     
@@ -29,10 +31,10 @@ class StreamList extends React.Component {
         )
     }
 
-    renderCreateStream(stream) {
+    renderCreateStream() {
         if (this.props.isSignedIn) {
             return (
-                <StyledLink to="/streams/new">Criar stream</StyledLink>
+                <PrimaryButton linkTo="/streams/new" content="Criar stream" />
             )
         }
     }
@@ -41,9 +43,8 @@ class StreamList extends React.Component {
         if (stream.userId === this.props.currentUserId) {
             return (
                 <div>
-                    <br/>
-                    <Link to={`/streams/edit/${stream.id}`}>   Editar  </Link>
-                    <Link to={`/streams/delete/${stream.id}`}> Excluir </Link>
+                    <ListButton linkTo={`/streams/edit/${stream.id}`} content="Editar" /> 
+                    <ListButton linkTo={`/streams/delete/${stream.id}`} content="Excluir" />
                 </div>
             )
         }
@@ -52,12 +53,11 @@ class StreamList extends React.Component {
     renderList() {
         return this.props.streamList.map(stream => {
             return (
-                <div className="item-list" key={stream.id}>
-                    <span><b> {stream.title} </b></span> <br/>
-                    <span> {stream.description} </span>
-                    {this.renderCurrentUserActions(stream)}
-                    <hr/>
-                </div>
+                <ItemList key={stream.id}>
+                    <div className="box a"><span><b> {stream.title} </b></span></div>
+                    <div className="box b"><span> {stream.description} </span></div>
+                    <div className="box c">{this.renderCurrentUserActions(stream)}</div>
+                </ItemList>
             )
         })
     }
@@ -72,37 +72,32 @@ const mapStateToProps = (state) => {
     };
 }
 
-const Button = styled.button`
-    font-size: em;
-    margin: 1em;
-    padding: 0.25em 1em;
-    border-radius: 30px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-`;
+const ItemList = styled.div`
+    display: grid;
+    padding-top: 20px;
+    
+    grid-gap: 5px;
+        grid-template-columns: 70% 10px 150px;
+    }
 
-const StyledLink = styled(Link)`
-    background: #4e54c8;
-    color: white;
-    border-radius: 30px;
-    height: 50px;
-    width:  250px;
-    border: none;
-    border-radius: 30px;
-    color: $light-gray;
-    font-size: 14px;
-    padding: 16px 36px;
-    cursor: pointer;
-    box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.65);
-    transition: all .3s;
-    outline: none;
+    .box {
+        // background-color: #444;
+        // color: #fff;
+        font-size: 150%;
 
-    :hover {
-        color: white;
-        outline-style: none;
-        border-radius: 30px;
-        background: #8f94fb;
-        box-shadow: 0px 5px 20px -3px rgba(0,0,0,0.65);
+    }
+
+    .a {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+    .b {
+        grid-column: 1 / 3;
+        grid-row: 2 ;
+    }
+    .c {
+        grid-column: 3 ;
+        grid-row: 1 / 3;
     }
 `;
 

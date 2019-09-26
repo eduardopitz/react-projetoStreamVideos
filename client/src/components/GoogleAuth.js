@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions';
+import GoogleButton from './base/GoogleButton';
 
 class GoogleAuth extends React.Component {
     componentDidMount() {
@@ -40,19 +41,13 @@ class GoogleAuth extends React.Component {
         } else if (this.props.isSignedIn) {
             return (
                 <div>
-                    <button onClick={this.onLogoutClick} className="google-button">
-                        <i className="google icon" />
-                        Logout
-                    </button>
+                    <GoogleButton content="Logout" onClick={this.onLogoutClick} />
                 </div>
             )
         } else {
             return (
                 <div>
-                    <button onClick={this.onLoginClick} className="google-button">
-                        <i className="google icon" />
-                        Login
-                    </button>
+                    <GoogleButton content="Login" onClick={this.onLoginClick} />
                 </div>
             );
         }

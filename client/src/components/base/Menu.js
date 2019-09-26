@@ -11,7 +11,7 @@ const Header = () => {
             <Link to="/" className="menu-item"> Início </Link>
             <Link to="/streams/new" className="menu-item"> Adicionar </Link>
             <Link to="/streams/list" className="menu-item"> Listar </Link>
-            
+            <br/>
             <GoogleAuth />
         </Menu>
     )
