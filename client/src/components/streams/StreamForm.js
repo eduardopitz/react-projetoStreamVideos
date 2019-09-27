@@ -1,14 +1,16 @@
 import React from 'react';
-import styled from 'styled-components'
 import { Field, reduxForm } from 'redux-form';
+
+import MediumInput from '../../components/base/form/input/MediumInput';
+import LargeInput from '../../components/base/form/input/LargeInput';
 
 class StreamForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='item-container'>
-                <Field name="title" component={this.renderInput} label="Título"/>
-                <Field name="description" component={this.renderInput} label="Descrição" type="text"/>
-                <button>Processar</button>
+                <Field name="title"       component={this.renderMediumInput} label="Título"/>
+                <Field name="description" component={this.renderLargeInput} label="Descrição" type="text"/>
+                <button>{this.props.buttomContent}</button>
             </form>
         )
     }
@@ -17,25 +19,13 @@ class StreamForm extends React.Component {
         this.props.onSubmit(formValues);
     }
 
-    renderInput = (formProps) => {
-        return (
-            <div>
-                <div>
-                    <span> { formProps.label } </span>
-                    {this.renderError(formProps.meta)}
-                </div> 
-                <Input { ...formProps.input} autoComplete="off" placeholder={ formProps.label } />
-            </div>
-        )
+    renderMediumInput = (formProps) => {
+        return <MediumInput label={formProps.label} meta={formProps.meta} input={formProps.input} placeholder={formProps.label} />
     }
 
-    renderError({ error, touched }) {
-        if (error && touched) {
-            return <span className='item-error'> { error } </span>
-        }
-        return <span></span>
+    renderLargeInput = (formProps) => {
+        return <LargeInput label={formProps.label} meta={formProps.meta} input={formProps.input} placeholder={formProps.label} />
     }
-
 };
 
 const validate = (formValues) => {
@@ -46,26 +36,5 @@ const validate = (formValues) => {
 
     return errors
 }
-
-
-const Input = styled.input`
-    color: #d9d7d7;
-    font-size: 1em;
-    border: 1px solid #424040;
-    border-radius: 3px;
-    letter-spacing: 0.8px;
-    margin: 20px;
-    padding-right: 30px;
-    padding-left: 30px;
-    text-align: justify;
-    background: inherit !important;
-    border-radius: 25px;
-
-    /* here we use the dynamically computed prop */
-    margin: 1em;
-    padding: 1em;
-  `
-;
-
 
 export default reduxForm({ form: 'streamForm', validate: validate })(StreamForm);

@@ -54,7 +54,11 @@ class StreamList extends React.Component {
         return this.props.streamList.map(stream => {
             return (
                 <ItemList key={stream.id}>
-                    <div className="box a"><span><b> {stream.title} </b></span></div>
+                    <div className="box a">
+                        <Link to={`/streams/${stream.id}`}> 
+                            <span><b> {stream.title} </b></span>
+                        </Link>
+                    </div>
                     <div className="box b"><span> {stream.description} </span></div>
                     <div className="box c">{this.renderCurrentUserActions(stream)}</div>
                 </ItemList>

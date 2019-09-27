@@ -3,7 +3,7 @@ import { Router } from 'react-router-dom'
 
 import Logo from './base/Logo';
 import Menu from './base/Menu';
-import Content from './base/Content';
+import Routes from './base/Routes';
 import history from '../history';
 
 import './App.scss'
@@ -17,7 +17,7 @@ const App = () => {
                     <Menu />
                 </div>
                 <div className="twelve wide column">
-                    <Content />
+                    <Routes />
                 </div>
             </Router>
         </div>
